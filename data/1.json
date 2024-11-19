@@ -1,0 +1,6 @@
+{
+  "id": "1",
+  "title": "Introduction to TypeScript",
+  "excerpt": "Learn why TypeScript is a powerful tool for JavaScript developers.",
+  "content": "<p>TypeScript extends JavaScript by adding types, making it easier to catch bugs and maintain large applications.</p>"
+}

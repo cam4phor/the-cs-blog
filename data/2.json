@@ -1,0 +1,6 @@
+{
+    "id": "2",
+    "title": "Understanding Closures in JavaScript",
+    "excerpt": "Closures are one of the most important concepts in JavaScript.",
+    "content": "<p>Closures allow a function to remember the scope in which it was created, even after that scope is gone.</p>"
+}

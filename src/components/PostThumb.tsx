@@ -8,7 +8,7 @@ export const PostThumb = ({ post }: { post: PostProps }): JSX.Element => {
     return (
         <div
             key={post.id}
-            className="m-2 p-4 bg-white shadow-md rounded-md border h-[350px] border-gray-200 w-4/5 flex flex-col justify-self-center self-center"
+            className="m-2 p-4 bg-background-secondary text-text-secondary shadow-xl dark:shadow-glow rounded-md border h-[350px] border-border w-4/5 flex flex-col justify-self-center self-center"
         >
             <div className="h-full w-full">
                 <Link
@@ -22,11 +22,11 @@ export const PostThumb = ({ post }: { post: PostProps }): JSX.Element => {
                         alt={post.title}
                     />
                     {/* Title */}
-                    <div className="text-xl font-bold text-gray-800 my-2">
+                    <div className="text-xl font-bold text-text-primary my-2">
                         {post.title}
                     </div>
                     {/* Excerpt */}
-                    <p className="text-gray-600 text-sm">{post.excerpt}</p>
+                    <p className="text-text-secondary text-sm">{post.excerpt}</p>
                 </Link>
             </div>
         </div>

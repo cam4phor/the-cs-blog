@@ -4,33 +4,35 @@ import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { Post } from '@/types/post';
 import { PostThumb } from '@/components/PostThumb';
 import Link from 'next/link';
+import ThemeToggle from '@/components/ThemeToggle';
 
 export default function Home({
     posts,
 }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element {
     return (
-        <div>
+        <div className="bg-background-primary text-text-primary">
             <div className="flex flex-col min-h-screen">
                 {/* Header */}
-                <header className="fixed top-0 left-0 w-full bg-white shadow-md z-10">
+                <header className="fixed top-0 left-0 w-full bg-background-primary text-text-primary shadow-md dark:shadow-glow z-10">
                     <div className="container mx-auto px-20 flex justify-between items-center">
-                        <nav className="container px-3 py-3 flex justify-between items-center">
+                        <nav className="container px-3 py-2 flex justify-between items-center">
                             {/* Logo */}
-                            <div className="text-xl font-bold">
-                                <Link href="/">
-                                    My Blog
+                            <div className="font-bold">
+                                <Link href="/" className="font-custom text-3xl tracking-extra-wide">
+                                    THE-CS-BLOG
                                 </Link>
                             </div>
 
                             {/* Navigation Links */}
                             <div className="space-x-6">
-                                <Link href="/" className="text-gray-700 hover:text-gray-900">
+                                <ThemeToggle />
+                                <Link href="/" className="text-text-secondary hover:text-text-primary">
                                     Home
                                 </Link>
-                                <Link href="/about" className="text-gray-700 hover:text-gray-900">
+                                <Link href="/about" className="text-text-secondary hover:text-text-primary">
                                     About
                                 </Link>
-                                <Link href="/blog" className="text-gray-700 hover:text-gray-900">
+                                <Link href="/blog" className="text-text-secondary hover:text-text-primary">
                                     Blog
                                 </Link>
                             </div>
@@ -38,9 +40,9 @@ export default function Home({
                     </div>
                 </header>
 
-                <main className="flex-grow pt-20">
+                <main className="flex-grow pt-2 bg-background-primary text-text-primary">
                     <div className="container mx-auto px-12 py-8">
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 py-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-12">
                             {posts.map((post: Post, index: number) => (
                                 <PostThumb
                                     key={index}
@@ -58,7 +60,7 @@ export default function Home({
                     </div>
                 </main>
                 {/* Footer */}
-                <footer className="bg-gray-200 py-4">
+                <footer className="bg-background-secondary text-text-primary shadow-md">
                     <div className="text-center">
                         <p>© {new Date().getFullYear()} the-cs-blog</p>
                     </div>

@@ -2,49 +2,117 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "7segment";
+  src: url("/fonts/7segment.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Enable smooth transitions  */
+:root,
+.dark,
+body,
+.main,
+header,
+footer,
+button,
+h1,
+h2,
+main,
+div {
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out,
+    border-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+  will-change: background-color, color;
+}
+/* Light Theme */
+:root {
+  --color-bg-primary: #f8f8f8;
+  --color-bg-secondary: #ffffff;
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #333333;
+  --color-accent: #0066cc;
+  --color-border: #cccccc;
+  --color-disabled: #cccccc;
+
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --shadow-sm: 0 1px 2px var(--shadow-color);
+  --shadow-md: 0 4px 6px var(--shadow-color);
+  --shadow-lg: 0 10px 15px var(--shadow-color);
+  --shadow-xl: 0 20px 25px var(--shadow-color);
+  --shadow-inner: inset 0 2px 4px var(--shadow-color);
+
+  --color-success: #28a745;
+  --color-error: #dc3545;
+  --color-warning: #ffc107;
+}
+
+/* Dark Theme */
+.dark {
+  --color-bg-primary: #1a1a1a;
+  --color-bg-secondary: #2a2a2a;
+  --color-text-primary: #f8f8f8;
+  --color-text-secondary: #cccccc;
+  --color-accent: #66b2ff;
+  --color-border: #555555;
+  --color-disabled: #555555;
+
+  --shadow-glow: 0 0 8px rgba(255, 255, 255, 0.2); /* Glow effect */
+  --shadow-color: rgb(255, 255, 255); /* Subtle light shadow */
+  --shadow-sm: 0 1px 2px var(--shadow-color);
+  --shadow-md: 0 4px 6px var(--shadow-color), 0 2px 4px rgba(0, 0, 0, 0.3); /* Dual-layer shadow */
+  --shadow-lg: 0 10px 15px var(--shadow-color), 0 4px 8px rgba(0, 0, 0, 0.4); /* Deeper dual-layer */
+  --shadow-xl: 0 20px 25px var(--shadow-color), 0 8px 12px rgba(0, 0, 0, 0.5);
+  --shadow-inner: inset 0 2px 4px rgba(255, 255, 255, 0.1);
+
+  --color-success: #0e3e19;
+  --color-error: #4f1717;
+  --color-warning: #897731;
+}
 
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 header,
 footer {
-    background-color: #333;
-    color: #fff;
-    padding: 1em;
+  background-color: #333;
+  color: #fff;
+  padding: 1em;
 }
 
 main {
-    padding: 1em;
+  padding: 1em;
 }
 
 h1,
 h2 {
-    color: #333;
+  color: #333;
 }
 
 @media (max-width: 600px) {
-    h1 {
-        font-size: 1.5em;
-    }
+  h1 {
+    font-size: 1.5em;
+  }
 }
 
-
 .editor-input {
-    border: 1px solid #ccc;
-    padding: 1em;
-    border-radius: 5px;
-    min-height: 200px;
-    font-size: 1em;
-    line-height: 1.5;
-    outline: none;
+  border: 1px solid #ccc;
+  padding: 1em;
+  border-radius: 5px;
+  min-height: 200px;
+  font-size: 1em;
+  line-height: 1.5;
+  outline: none;
 }
 
 .editor-placeholder {
-    color: #888;
-    position: absolute;
-    pointer-events: none;
-    margin: 1em;
+  color: #888;
+  position: absolute;
+  pointer-events: none;
+  margin: 1em;
 }

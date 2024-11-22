@@ -592,7 +592,7 @@ export default function ToolbarPlugin() {
       {blockType === "code" ? (
         <>
           <Select
-            className="border-none flex bg-none rounded-xl p-1 align-middle text-sm text-text-secondary text-ellipsis capitalize w-32"
+            className="border-none flex bg-background-secondary rounded-xl p-1 align-middle text-sm text-text-secondary text-ellipsis capitalize w-32"
             onChange={onCodeLanguageSelect}
             options={codeLanguges}
             value={codeLanguage}

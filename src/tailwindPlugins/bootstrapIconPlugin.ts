@@ -24,11 +24,16 @@ const bootstrapIconsPlugin = (api: PluginAPI): void => {
 
       // Create a Tailwind utility class
       acc[`.icon-${iconName}`] = {
-        backgroundImage: svgDataUrl,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "contain",
-        backgroundPosition: "center",
-        display: "flex",
+        WebkitMaskImage: svgDataUrl, // Use the SVG as a mask
+        maskImage: svgDataUrl,
+        WebkitMaskRepeat: "no-repeat",
+        maskRepeat: "no-repeat",
+        WebkitMaskSize: "contain",
+        maskSize: "contain",
+        WebkitMaskPosition: "center",
+        maskPosition: "center",
+        backgroundColor: "currentColor", // Use current text color
+        display: "inline-block",
         width: "18px", // Default size, adjustable with Tailwind utilities
         height: "18px", // Default size, adjustable with Tailwind utilities
         marginTop: "2px", // Default spacing, adjustable with Tailwind utilities

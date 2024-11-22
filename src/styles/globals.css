@@ -29,11 +29,14 @@ div {
 :root {
   --color-bg-primary: #f8f8f8;
   --color-bg-secondary: #ffffff;
+  --color-bg-highlight: #cbcbcb;
   --color-text-primary: #1a1a1a;
   --color-text-secondary: #333333;
+  --color-text-tertiary: #666666;
   --color-accent: #0066cc;
   --color-border: #cccccc;
   --color-disabled: #cccccc;
+  --color-active: #007bff;
 
   --shadow-color: rgba(0, 0, 0, 0.1);
   --shadow-sm: 0 1px 2px var(--shadow-color);
@@ -51,11 +54,15 @@ div {
 .dark {
   --color-bg-primary: #1a1a1a;
   --color-bg-secondary: #2a2a2a;
+  --color-bg-highlight: #5e5e5e;
   --color-text-primary: #f8f8f8;
   --color-text-secondary: #cccccc;
+  --color-text-tertiary: #999999;
   --color-accent: #66b2ff;
   --color-border: #555555;
   --color-disabled: #555555;
+
+  --color-active: #007bff;
 
   --shadow-glow: 0 0 8px rgba(255, 255, 255, 0.2); /* Glow effect */
   --shadow-color: rgb(255, 255, 255); /* Subtle light shadow */

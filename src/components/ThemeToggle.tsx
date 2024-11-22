@@ -3,7 +3,7 @@ const LIGHT = "light";
 const DARK = "dark";
 
 const ThemeToggle = () => {
-  const [theme, setTheme] = useState<typeof LIGHT | typeof DARK>(LIGHT);
+  const [theme, setTheme] = useState<typeof LIGHT | typeof DARK>(DARK);
 
   // Apply the theme to the HTML tag
   useEffect(() => {

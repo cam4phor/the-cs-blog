@@ -91,7 +91,7 @@ const Toolbar: React.FC = () => {
 };
 
 function Placeholder() {
-  return <div className="absolute top-0 text-text-tertiary items-start justify-start m-2 pointer-events-none overflow-hidden">Write here...</div>;
+  return <div className="absolute top-0 text-text-primary items-start justify-start m-2 pointer-events-none overflow-hidden">Write here...</div>;
 }
 
 const Editor: React.FC<EditorProps> = ({ onSave }) => {
@@ -108,26 +108,27 @@ const Editor: React.FC<EditorProps> = ({ onSave }) => {
   };
 
   return (
-    <div className="px-96 flex flex-col justify-between items-center">
+    <div className="py-10 px-96 flex flex-col justify-between items-center">
       <input
         type="text"
         placeholder="Title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        className="text-text-tertiary bg-background-secondary px-2 py-1 outline-none"
+        className="text-text-primary bg-background-primary px-2 py-1 outline-none"
         style={{ width: "100%", fontSize: "1.5em", marginBottom: "1em" }}
       />
       <input
         placeholder="Excerpt"
         value={excerpt}
-        className="text-text-tertiary bg-background-secondary px-2 py-1 outline-none"
+        maxLength={140}
+        className="text-text-primary bg-background-primary px-2 py-1 outline-none"
         onChange={(e) => setExcerpt(e.target.value)}
         style={{ width: "100%", marginBottom: "1em" }}
       />
       <LexicalComposer initialConfig={initialConfig}>
         <div className="bg-background-primary m-5 rounded-sm text-text-primary relative leading-5 text-left rounded-tl-xl rounded-tr-xl">
           <ToolbarPlugin />
-          <div className="bg-background-secondary relative">
+          <div className="bg-background-primary relative">
             <RichTextPlugin
               contentEditable={<ContentEditable className="p-1 rounded-sm min-h-40 outline-none text-sm leading-6 w-full border-none text-text-secondary bg-background-secondary" />}
               placeholder={<Placeholder />}

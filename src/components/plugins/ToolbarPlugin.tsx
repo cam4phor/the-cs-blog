@@ -271,7 +271,7 @@ function BlockOptionsDropdownList({
     if (toolbar !== null && dropDown !== null) {
       const { top, left } = toolbar.getBoundingClientRect();
       dropDown.style.top = `${top + 40}px`;
-      dropDown.style.left = `${left}px`;
+      dropDown.style.left = `${left+ 110}px`;
     }
   }, [dropDownRef, toolbarRef]);
 
@@ -379,40 +379,40 @@ function BlockOptionsDropdownList({
   };
 
   return (
-    <div className="z-5 block absolute shadow-dropdown rounded-lg min-w-[100px] min-h-[40px] bg-background-secondary" ref={dropDownRef}>
-      <button className="item mx-2 my-0 px-2 py-1 text-text-secondary cursor-pointer leading-4 text-[15px] flex items-center flex-row flex-shrink-0 justify-between bg-background-secondary rounded-lg border-0 min-w-[268px]" onClick={formatParagraph}>
+    <div className="z-5 block absolute shadow-dropdown rounded-lg min-w-[96px] min-h-[40px] bg-background-secondary" ref={dropDownRef}>
+      <button className="item mx-2 my-0 px-2 py-1 text-text-secondary cursor-pointer leading-4 text-[15px] flex items-center flex-row flex-shrink-0 justify-between bg-background-secondary rounded-lg border-0 min-w-[96px]" onClick={formatParagraph}>
         <i className="icon-paragraph"></i>
-        <span className="item mx-2 my-0 px-2 py-1 text-text-secondary cursor-pointer leading-4 text-[15px] flex items-center flex-row flex-shrink-0 justify-between bg-background-secondary rounded-lg border-0 min-w-[268px]">Normal</span>
+        <span className="item mx-2 my-0 px-2 py-1 text-text-secondary cursor-pointer leading-4 text-[15px] flex items-center flex-row flex-shrink-0 justify-between bg-background-secondary rounded-lg border-0 min-w-[96px]">Normal</span>
         {blockType === "paragraph" && <span className="bg-background-highlight" />}
       </button>
-      <button className="item mx-2 my-0 px-2 py-1 text-text-secondary cursor-pointer leading-4 text-[15px] flex items-center flex-row flex-shrink-0 justify-between bg-background-secondary rounded-lg border-0 min-w-[268px]" onClick={formatLargeHeading}>
+      <button className="item mx-2 my-0 px-2 py-1 text-text-secondary cursor-pointer leading-4 text-[15px] flex items-center flex-row flex-shrink-0 justify-between bg-background-secondary rounded-lg border-0 min-w-[96px]" onClick={formatLargeHeading}>
         <i className="icon-type-h1"></i>
-        <span className="item mx-2 my-0 px-2 py-1 text-text-secondary cursor-pointer leading-4 text-[15px] flex items-center flex-row flex-shrink-0 justify-between bg-background-secondary rounded-lg border-0 min-w-[268px]">Large Heading</span>
+        <span className="item mx-2 my-0 px-2 py-1 text-text-secondary cursor-pointer leading-4 text-[15px] flex items-center flex-row flex-shrink-0 justify-between bg-background-secondary rounded-lg border-0 min-w-[96px]">Large Heading</span>
         {blockType === "h1" && <span className="bg-background-highlight" />}
       </button>
-      <button className="item mx-2 my-0 px-2 py-1 text-text-secondary cursor-pointer leading-4 text-[15px] flex items-center flex-row flex-shrink-0 justify-between bg-background-secondary rounded-lg border-0 min-w-[268px]" onClick={formatSmallHeading}>
+      <button className="item mx-2 my-0 px-2 py-1 text-text-secondary cursor-pointer leading-4 text-[15px] flex items-center flex-row flex-shrink-0 justify-between bg-background-secondary rounded-lg border-0 min-w-[96px]" onClick={formatSmallHeading}>
         <i className="icon-type-h2"></i>
-        <span className="item mx-2 my-0 px-2 py-1 text-text-secondary cursor-pointer leading-4 text-[15px] flex items-center flex-row flex-shrink-0 justify-between bg-background-secondary rounded-lg border-0 min-w-[268px]">Small Heading</span>
+        <span className="item mx-2 my-0 px-2 py-1 text-text-secondary cursor-pointer leading-4 text-[15px] flex items-center flex-row flex-shrink-0 justify-between bg-background-secondary rounded-lg border-0 min-w-[96px]">Small Heading</span>
         {blockType === "h2" && <span className="bg-background-highlight" />}
       </button>
-      <button className="item mx-2 my-0 px-2 py-1 text-text-secondary cursor-pointer leading-4 text-[15px] flex items-center flex-row flex-shrink-0 justify-between bg-background-secondary rounded-lg border-0 min-w-[268px]" onClick={formatBulletList}>
+      <button className="item mx-2 my-0 px-2 py-1 text-text-secondary cursor-pointer leading-4 text-[15px] flex items-center flex-row flex-shrink-0 justify-between bg-background-secondary rounded-lg border-0 min-w-[96px]" onClick={formatBulletList}>
         <i className="icon-list-ul"></i>
-        <span className="item mx-2 my-0 px-2 py-1 text-text-secondary cursor-pointer leading-4 text-[15px] flex items-center flex-row flex-shrink-0 justify-between bg-background-secondary rounded-lg border-0 min-w-[268px]">Bullet List</span>
+        <span className="item mx-2 my-0 px-2 py-1 text-text-secondary cursor-pointer leading-4 text-[15px] flex items-center flex-row flex-shrink-0 justify-between bg-background-secondary rounded-lg border-0 min-w-[96px]">Bullet List</span>
         {blockType === "ul" && <span className="bg-background-highlight" />}
       </button>
-      <button className="item mx-2 my-0 px-2 py-1 text-text-secondary cursor-pointer leading-4 text-[15px] flex items-center flex-row flex-shrink-0 justify-between bg-background-secondary rounded-lg border-0 min-w-[268px]" onClick={formatNumberedList}>
+      <button className="item mx-2 my-0 px-2 py-1 text-text-secondary cursor-pointer leading-4 text-[15px] flex items-center flex-row flex-shrink-0 justify-between bg-background-secondary rounded-lg border-0 min-w-[96px]" onClick={formatNumberedList}>
         <i className="icon-list-ol"></i>
-        <span className="item mx-2 my-0 px-2 py-1 text-text-secondary cursor-pointer leading-4 text-[15px] flex items-center flex-row flex-shrink-0 justify-between bg-background-secondary rounded-lg border-0 min-w-[268px]">Numbered List</span>
+        <span className="item mx-2 my-0 px-2 py-1 text-text-secondary cursor-pointer leading-4 text-[15px] flex items-center flex-row flex-shrink-0 justify-between bg-background-secondary rounded-lg border-0 min-w-[96px]">Numbered List</span>
         {blockType === "ol" && <span className="bg-background-highlight" />}
       </button>
-      <button className="item mx-2 my-0 px-2 py-1 text-text-secondary cursor-pointer leading-4 text-[15px] flex items-center flex-row flex-shrink-0 justify-between bg-background-secondary rounded-lg border-0 min-w-[268px]" onClick={formatQuote}>
+      <button className="item mx-2 my-0 px-2 py-1 text-text-secondary cursor-pointer leading-4 text-[15px] flex items-center flex-row flex-shrink-0 justify-between bg-background-secondary rounded-lg border-0 min-w-[96px]" onClick={formatQuote}>
         <i className="icon-quote"></i>
-        <span className="item mx-2 my-0 px-2 py-1 text-text-secondary cursor-pointer leading-4 text-[15px] flex items-center flex-row flex-shrink-0 justify-between bg-background-secondary rounded-lg border-0 min-w-[268px]">Quote</span>
+        <span className="item mx-2 my-0 px-2 py-1 text-text-secondary cursor-pointer leading-4 text-[15px] flex items-center flex-row flex-shrink-0 justify-between bg-background-secondary rounded-lg border-0 min-w-[96px]">Quote</span>
         {blockType === "quote" && <span className="bg-background-highlight" />}
       </button>
-      <button className="item mx-2 my-0 px-2 py-1 text-text-secondary cursor-pointer leading-4 text-[15px] flex items-center flex-row flex-shrink-0 justify-between bg-background-secondary rounded-lg border-0 min-w-[268px]" onClick={formatCode}>
+      <button className="item mx-2 my-0 px-2 py-1 text-text-secondary cursor-pointer leading-4 text-[15px] flex items-center flex-row flex-shrink-0 justify-between bg-background-secondary rounded-lg border-0 min-w-[96px]" onClick={formatCode}>
         <i className="icon-code"></i>
-        <span className="item mx-2 my-0 px-2 py-1 text-text-secondary cursor-pointer leading-4 text-[15px] flex items-center flex-row flex-shrink-0 justify-between bg-background-secondary rounded-lg border-0 min-w-[268px]">Code Block</span>
+        <span className="item mx-2 my-0 px-2 py-1 text-text-secondary cursor-pointer leading-4 text-[15px] flex items-center flex-row flex-shrink-0 justify-between bg-background-secondary rounded-lg border-0 min-w-[96px]">Code Block</span>
         {blockType === "code" && <span className="bg-background-highlight" />}
       </button>
     </div>
@@ -482,6 +482,27 @@ export default function ToolbarPlugin() {
       }
     }
   }, [editor]);
+
+  const getIconFromBlockType = useCallback((blockType: string) => {
+    switch (blockType) {
+      case "paragraph":
+        return "paragraph";
+      case "quote":
+        return "quote";
+      case "code":
+        return "code";
+      case "h1":
+        return "type-h1";
+      case "h2":
+        return "type-h2";
+      case "ul":
+        return "list-ul";
+      case "ol":
+        return "list-ol";
+      default:
+        return "";
+    }
+  }, []);
 
   useEffect(() => {
     return mergeRegister(
@@ -572,7 +593,7 @@ export default function ToolbarPlugin() {
             }
             aria-label="Formatting Options"
           >
-            <span className={"icon-" + blockType} />
+            <span className={"mr-2 icon-" + getIconFromBlockType(blockType)} />
             <span className="flex leading-5 w-32 align-middle text-sm text-text-secondary text-ellipsis overflow-hidden h-5 text-left">{blockTypeToBlockName[blockType]}</span>
             <i className="icon-chevron-down" />
           </button>
@@ -597,7 +618,6 @@ export default function ToolbarPlugin() {
             options={codeLanguges}
             value={codeLanguage}
           />
-          <i className="icon-chevron-down" />
         </>
       ) : (
         <>

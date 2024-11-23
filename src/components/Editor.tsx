@@ -108,20 +108,20 @@ const Editor: React.FC<EditorProps> = ({ onSave }) => {
   };
 
   return (
-    <div className="py-10 px-96 flex flex-col justify-between items-center">
+    <div className="py-10 flex flex-col justify-between items-center">
       <input
         type="text"
         placeholder="Title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        className="text-text-primary bg-background-primary px-2 py-1 outline-none"
+        className="text-text-primary max-w-[43rem] bg-background-primary px-2 py-1 outline-none"
         style={{ width: "100%", fontSize: "1.5em", marginBottom: "1em" }}
       />
       <input
         placeholder="Excerpt"
         value={excerpt}
         maxLength={140}
-        className="text-text-primary bg-background-primary px-2 py-1 outline-none"
+        className="text-text-primary max-w-[43rem] bg-background-primary px-2 py-1 outline-none"
         onChange={(e) => setExcerpt(e.target.value)}
         style={{ width: "100%", marginBottom: "1em" }}
       />
@@ -147,7 +147,7 @@ const Editor: React.FC<EditorProps> = ({ onSave }) => {
       </LexicalComposer>
       <button
         onClick={handleSave}
-        className="bg-background-secondary text-text-tertiary p-2 rounded-md m-2"
+        className="bg-background-secondary text-text-primary p-2 rounded-md m-2"
       >
         Save Post
       </button>

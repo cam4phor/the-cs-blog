@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import { LexicalErrorBoundary } from "@lexical/react/LexicalErrorBoundary";
-import { FORMAT_TEXT_COMMAND, FORMAT_ELEMENT_COMMAND } from "lexical";
+import { FORMAT_TEXT_COMMAND, FORMAT_ELEMENT_COMMAND, RangeSelection, $getSelection, $getRoot } from "lexical";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { HeadingNode, QuoteNode } from "@lexical/rich-text";
 import { ListItemNode, ListNode } from "@lexical/list";
@@ -114,14 +114,14 @@ const Editor: React.FC<EditorProps> = ({ onSave }) => {
         placeholder="Title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        className="text-text-primary max-w-[43rem] bg-background-primary px-2 py-1 outline-none"
-        style={{ width: "100%", fontSize: "1.5em", marginBottom: "1em" }}
+        className="text-text-primary max-w-[43rem] bg-background-primary px-2 py-1 outline-none font-unna text-4xl"
+        style={{ width: "100%", marginBottom: "1em" }}
       />
       <input
         placeholder="Excerpt"
         value={excerpt}
         maxLength={140}
-        className="text-text-primary max-w-[43rem] bg-background-primary px-2 py-1 outline-none"
+        className="text-text-primary max-w-[43rem] bg-background-primary px-2 py-1 outline-none font-unna text-2xl"
         onChange={(e) => setExcerpt(e.target.value)}
         style={{ width: "100%", marginBottom: "1em" }}
       />
@@ -130,7 +130,7 @@ const Editor: React.FC<EditorProps> = ({ onSave }) => {
           <ToolbarPlugin />
           <div className="bg-background-primary relative">
             <RichTextPlugin
-              contentEditable={<ContentEditable className="p-1 rounded-sm min-h-40 outline-none text-sm leading-6 w-full border-none text-text-secondary bg-background-secondary" />}
+              contentEditable={<ContentEditable className="p-1 rounded-sm font-unna text-2xl min-h-40 outline-none leading-8 w-full border-none text-text-primary bg-background-secondary tracking-wide" />}
               placeholder={<Placeholder />}
               ErrorBoundary={LexicalErrorBoundary}
             />

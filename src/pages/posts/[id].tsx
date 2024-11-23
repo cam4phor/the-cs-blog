@@ -8,7 +8,6 @@ import "prismjs/components/prism-python";
 import "prismjs/themes/prism.css";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import { PostProps } from "@/types/post";
-import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import Editor from "@/components/Editor";
 export function Post({
   post,

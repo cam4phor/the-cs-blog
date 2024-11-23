@@ -8,6 +8,10 @@ export default {
     extend: {
       fontFamily: {
         custom: ["'7segment'", "'sans-serif'"],
+        unna: ["'Unna'", "'serif'"],
+        unnaBold: ["'Unna-Bold'", "'serif'"],
+        unnaItalic: ["'Unna-Italic'", "'serif'"],
+        unnaBoldItalic: ["'Unna-Bold-Italic'", "'serif'"],
       },
       letterSpacing: {
         "extra-wide": "0.2em", // Extra wide custom spacing
@@ -47,5 +51,5 @@ export default {
     },
   },
   darkMode: "class",
-  plugins: [bootstrapIconsPlugin]
+  plugins: [bootstrapIconsPlugin, require('@tailwindcss/typography')]
 } satisfies Config;

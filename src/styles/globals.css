@@ -9,6 +9,34 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Unna";
+  src: url('/fonts/Unna-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Unna-Bold";
+  src: url('/fonts/Unna-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Unna-Italic";
+  src: url('/fonts/Unna-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Unna-Bold-Italic";
+  src: url('/fonts/Unna-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
 /* Enable smooth transitions  */
 :root,
 .dark,
@@ -105,21 +133,4 @@ h2 {
   h1 {
     font-size: 1.5em;
   }
-}
-
-.editor-input {
-  border: 1px solid #ccc;
-  padding: 1em;
-  border-radius: 5px;
-  min-height: 200px;
-  font-size: 1em;
-  line-height: 1.5;
-  outline: none;
-}
-
-.editor-placeholder {
-  color: #888;
-  position: absolute;
-  pointer-events: none;
-  margin: 1em;
 }

@@ -20,15 +20,6 @@ export default function Layout({ children }: { children: React.ReactNode }): JSX
               {/* Navigation Links */}
               <div className="space-x-6">
                 <ThemeToggle />
-                <Link href="/" className="text-text-secondary hover:text-text-primary">
-                  Home
-                </Link>
-                <Link href="/about" className="text-text-secondary hover:text-text-primary">
-                  About
-                </Link>
-                <Link href="/blog" className="text-text-secondary hover:text-text-primary">
-                  Blog
-                </Link>
               </div>
             </nav>
           </div>

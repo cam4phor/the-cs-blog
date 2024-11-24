@@ -7,21 +7,19 @@ export default function handler(
     res: NextApiResponse
 ): void {
     if (req.method === 'POST') {
-        const { title, excerpt, content } = req.body;
+        const {id, title, excerpt, content, date } = req.body;
 
         if (!title || !excerpt || !content) {
             res.status(400).json({ error: 'Missing required fields' });
             return;
         }
-
-        const timestamp = Date.now();
-        const filename = `${timestamp}.json`;
+        const filename = `${id}.json`;
         const postData = {
-            id: timestamp,
+            id: id,
             title,
             excerpt,
             content, // Serialized content from Lexical
-            date: new Date().toISOString(),
+            date: date,
         };
 
         const filePath = path.join(process.cwd(), 'data', filename);

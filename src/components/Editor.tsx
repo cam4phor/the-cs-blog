@@ -1,11 +1,9 @@
-import { useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import { LexicalErrorBoundary } from "@lexical/react/LexicalErrorBoundary";
-import { FORMAT_TEXT_COMMAND, FORMAT_ELEMENT_COMMAND, RangeSelection, $getSelection, $getRoot } from "lexical";
-import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { HeadingNode, QuoteNode } from "@lexical/rich-text";
 import { ListItemNode, ListNode } from "@lexical/list";
 import { CodeHighlightNode, CodeNode } from "@lexical/code";
@@ -21,10 +19,13 @@ import ListMaxIndentLevelPlugin from "./plugins/ListMaxIndentLevelPlugin";
 import { MarkdownShortcutPlugin } from "@lexical/react/LexicalMarkdownShortcutPlugin";
 import { TRANSFORMERS } from "@lexical/markdown";
 import exampleTheme from "./themes/ExampleTheme";
-
+import SaveHandler from "./SaveHandler";
+import { PostProps } from "@/types/post";
+import EditorInitializer from "./EditorInitializer";
 
 interface EditorProps {
   onSave?: (title: string, excerpt: string, content: string) => Promise<void>;
+  initialContent?: PostProps;
 }
 
 const initialConfig = {
@@ -48,92 +49,58 @@ const initialConfig = {
   },
 };
 
-const Toolbar: React.FC = () => {
-  const [editor] = useLexicalComposerContext();
-
-  const formatBold = () => {
-    editor.dispatchCommand(FORMAT_TEXT_COMMAND, "bold");
-  };
-
-  const formatItalic = () => {
-    editor.dispatchCommand(FORMAT_TEXT_COMMAND, "italic");
-  };
-
-  const formatUnderline = () => {
-    editor.dispatchCommand(FORMAT_TEXT_COMMAND, "underline");
-  };
-
-  console.log(editor.getEditorState());
-
+function Placeholder() {
   return (
-    <div className="">
-      <button
-        onClick={formatBold}
-        className="border-none flex text-text-secondary bg-background-secondary px-2 py-1 m-1 rounded-md font-bold cursor-pointer align-middle"
-      >
-        B
-      </button>
-      <button
-        onClick={formatItalic}
-        className="border-none flex text-text-secondary bg-background-secondary px-2 py-1 m-1 rounded-md italic cursor-pointer align-middle"
-      >
-        I
-      </button>
-      <button
-        onClick={formatUnderline}
-        className="border-none flex text-text-secondary bg-background-secondary px-2 py-1 m-1 rounded-md underline cursor-pointer align-middle"
-      >
-        U
-      </button>
-      {/* Add more formatting options as needed */}
+    <div className="absolute top-0 text-text-primary items-start justify-start m-2 pointer-events-none overflow-hidden">
+      Write here...
     </div>
   );
-};
-
-function Placeholder() {
-  return <div className="absolute top-0 text-text-primary items-start justify-start m-2 pointer-events-none overflow-hidden">Write here...</div>;
 }
 
-const Editor: React.FC<EditorProps> = ({ onSave }) => {
-  const [title, setTitle] = useState<string>("");
-  const [excerpt, setExcerpt] = useState<string>("");
-  const [content, setContent] = useState<string>("");
+const Editor: React.FC<EditorProps> = ({ onSave, initialContent }) => {
+  const [title, setTitle] = useState<string>(initialContent?.title ?? "");
+  const [excerpt, setExcerpt] = useState<string>(initialContent?.excerpt ?? "");
 
-  const handleSave = async (): Promise<void> => {
+  const handleSave = useCallback((htmlContent: string) => {
     if (onSave) {
-      await onSave(title, excerpt, content);
+      onSave(title, excerpt, htmlContent);
     } else {
       console.warn("No save handler provided");
     }
-  };
+  }, [title, excerpt, onSave]);
 
   return (
-    <div className="py-10 flex flex-col justify-between items-center">
-      <input
-        type="text"
-        placeholder="Title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        className="text-text-primary max-w-[43rem] bg-background-primary px-2 py-1 outline-none font-unna text-4xl"
-        style={{ width: "100%", marginBottom: "1em" }}
-      />
-      <input
-        placeholder="Excerpt"
-        value={excerpt}
-        maxLength={140}
-        className="text-text-primary max-w-[43rem] bg-background-primary px-2 py-1 outline-none font-unna text-2xl"
-        onChange={(e) => setExcerpt(e.target.value)}
-        style={{ width: "100%", marginBottom: "1em" }}
-      />
-      <LexicalComposer initialConfig={initialConfig}>
+    <LexicalComposer initialConfig={initialConfig}>
+      <div className="py-10 max-w-[43rem] flex flex-col justify-between items-center">
+        <input
+          type="text"
+          placeholder="Title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          className="text-text-primary max-w-[43rem] bg-background-primary px-2 py-1 outline-none font-unna text-4xl"
+          style={{ width: "100%", marginBottom: "1em" }}
+        />
+        <input
+          placeholder="Excerpt"
+          value={excerpt}
+          maxLength={140}
+          className="text-text-primary max-w-[43rem] bg-background-primary px-2 py-1 outline-none font-unna text-2xl"
+          onChange={(e) => setExcerpt(e.target.value)}
+          style={{ width: "100%", marginBottom: "1em" }}
+        />
         <div className="bg-background-primary m-5 rounded-sm text-text-primary relative leading-5 text-left rounded-tl-xl rounded-tr-xl">
           <ToolbarPlugin />
           <div className="bg-background-primary relative">
             <RichTextPlugin
-              contentEditable={<ContentEditable className="p-1 rounded-sm font-unna text-2xl min-h-40 outline-none leading-8 w-full border-none text-text-primary bg-background-secondary tracking-wide" />}
+              contentEditable={
+                <ContentEditable className="p-1 rounded-sm font-unna text-2xl min-h-40 outline-none leading-8 w-full border-none text-text-primary bg-background-secondary tracking-wide" />
+              }
               placeholder={<Placeholder />}
               ErrorBoundary={LexicalErrorBoundary}
             />
+            {initialContent !== undefined && initialContent !== null && (
+              <EditorInitializer post={initialContent} />
+            )}
             <HistoryPlugin />
             <AutoFocusPlugin />
             <CodeHighlightPlugin />
@@ -142,16 +109,11 @@ const Editor: React.FC<EditorProps> = ({ onSave }) => {
             <AutoLinkPlugin />
             <ListMaxIndentLevelPlugin maxDepth={7} />
             <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
+            <SaveHandler handleSave={handleSave} />
           </div>
         </div>
-      </LexicalComposer>
-      <button
-        onClick={handleSave}
-        className="bg-background-secondary text-text-primary p-2 rounded-md m-2"
-      >
-        Save Post
-      </button>
-    </div>
+      </div>
+    </LexicalComposer>
   );
 };
 

@@ -1,6 +1,7 @@
 {
   "id": "1",
-  "title": "Introduction to TypeScript",
+  "title": "Introduction to TypeScript-2",
   "excerpt": "Learn why TypeScript is a powerful tool for JavaScript developers.",
-  "content": "<p>TypeScript extends JavaScript by adding types, making it easier to catch bugs and maintain large applications.</p>"
+  "content": "<p class=\"editor-paragraph\" dir=\"ltr\"><span style=\"white-space: pre-wrap;\">TypeScript extends JavaScript by adding types, making it easier to catch bugs and maintain large applications.</span></p><p class=\"editor-paragraph\"><br></p><p class=\"editor-paragraph\" dir=\"ltr\"><b><strong class=\"editor-text-bold\" style=\"white-space: pre-wrap;\">NEW VALUE</strong></b></p><p class=\"editor-paragraph\"><br></p><p class=\"editor-paragraph\" dir=\"ltr\"><span style=\"white-space: pre-wrap;\">Why would we do that?</span></p>",
+  "date": "2024-11-23T21:50:25.511Z"
 }

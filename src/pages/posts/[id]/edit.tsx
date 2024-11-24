@@ -2,19 +2,13 @@ import fs from "fs";
 import path from "path";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import { PostProps } from "@/types/post";
-import PostView from "@/components/PostView";
-
-
-const PostPage: React.FC<{ post: PostProps }> = ({ post }) => {
-    return <PostView {...post} />;
-  };
-  
+import Editor from "@/components/Editor";
+import CreateEditPostPage from "@/components/CreateEditPost";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const postsDirectory = path.join(process.cwd(), "data");
   const filenames = fs.readdirSync(postsDirectory);
   const paths = filenames.map((filename) => ({
-    
     params: { id: filename.replace(".json", "") },
   }));
 
@@ -32,4 +26,9 @@ export const getStaticProps: GetStaticProps<{ post: PostProps }> = async ({
   return { props: { post } };
 };
 
-export default PostPage;
+const EditorPage: React.FC<{ post: PostProps }> = ({post}): JSX.Element => {
+    console.log(post);
+  return <CreateEditPostPage post={post} />;
+}
+
+export default EditorPage;

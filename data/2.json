@@ -1,6 +1,7 @@
 {
-    "id": "2",
-    "title": "Understanding Closures in JavaScript",
-    "excerpt": "Closures are one of the most important concepts in JavaScript.",
-    "content": "<p>Closures allow a function to remember the scope in which it was created, even after that scope is gone.</p>"
+  "id": "2",
+  "title": "Understanding Closures in JavaScript-1",
+  "excerpt": "Closures are one of the most important concepts in JavaScript.",
+  "content": "<p class=\"editor-paragraph\" dir=\"ltr\"><span style=\"white-space: pre-wrap;\">Closures allow a function to remember the scope in which it was created, even after that scope is gone.</span></p>",
+  "date": "2024-11-23T21:42:59.108Z"
 }

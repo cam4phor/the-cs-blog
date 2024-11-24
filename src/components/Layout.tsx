@@ -26,7 +26,7 @@ export default function Layout({ children }: { children: React.ReactNode }): JSX
         </header>
 
         {/* Main Content */}
-        <main className="flex-grow pt-20">{children}</main>
+        <main className="flex-grow pt-20 flex flex-col justify-between items-center">{children}</main>
 
         {/* Footer */}
         <footer className="bg-background-secondary text-text-primary shadow-md">

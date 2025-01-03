@@ -4,17 +4,14 @@ import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import { PostProps } from "@/types/post";
 import PostView from "@/components/PostView";
 
-
 const PostPage: React.FC<{ post: PostProps }> = ({ post }) => {
-    return <PostView {...post} />;
-  };
-  
+  return <PostView {...post} />;
+};
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const postsDirectory = path.join(process.cwd(), "data");
   const filenames = fs.readdirSync(postsDirectory);
   const paths = filenames.map((filename) => ({
-    
     params: { id: filename.replace(".json", "") },
   }));
 

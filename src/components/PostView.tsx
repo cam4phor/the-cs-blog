@@ -24,7 +24,7 @@ const PostView: React.FC<PostProps> = ({
       <p className="text-text-secondary">{excerpt}</p>
       <div dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
       <p className="text-sm text-text-tertiary">
-        Published on {new Date(date).toLocaleDateString()}
+        Published on {new Date(date).toLocaleDateString('en-GB')}
       </p>
     </article>
   );

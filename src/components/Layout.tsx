@@ -9,7 +9,7 @@ export default function Layout({ children }: { children: React.ReactNode }): JSX
         {/* Header */}
         <header className="fixed top-0 left-0 w-full bg-background-primary text-text-primary shadow-md dark:shadow-glow z-10">
           <div className="container mx-auto px-20 flex justify-between items-center">
-            <nav className="container px-3 py-2 flex justify-between items-center">
+            <nav className="container px-3 flex justify-between items-center">
               {/* Logo */}
               <div className="font-bold">
                 <Link href="/" className="font-custom text-3xl tracking-extra-wide">
@@ -26,7 +26,7 @@ export default function Layout({ children }: { children: React.ReactNode }): JSX
         </header>
 
         {/* Main Content */}
-        <main className="flex-grow pt-20 flex flex-col justify-between items-center">{children}</main>
+        <main className="flex-grow pt-12 flex flex-col justify-between items-center">{children}</main>
 
         {/* Footer */}
         <footer className="bg-background-secondary text-text-primary shadow-md">

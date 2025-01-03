@@ -93,7 +93,7 @@ const Editor: React.FC<EditorProps> = ({ onSave, initialContent }) => {
           <div className="bg-background-primary relative">
             <RichTextPlugin
               contentEditable={
-                <ContentEditable className="p-1 rounded-sm font-unna text-2xl min-h-40 outline-none leading-8 w-full border-none text-text-primary bg-background-secondary tracking-wide" />
+                <ContentEditable className="p-1 rounded-sm font-unna text-2xl min-h-40 outline-none leading-8 w-full border-none text-text-primary bg-background-primary tracking-wide" />
               }
               placeholder={<Placeholder />}
               ErrorBoundary={LexicalErrorBoundary}

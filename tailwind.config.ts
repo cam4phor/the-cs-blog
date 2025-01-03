@@ -1,9 +1,10 @@
 import type { Config } from "tailwindcss";
 import bootstrapIconsPlugin from "./src/tailwindPlugins/bootstrapIconPlugin";
-import { highlight } from "prismjs";
+import typography from "@tailwindcss/typography";
 
 export default {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
+  plugins: [bootstrapIconsPlugin, typography],
   theme: {
     extend: {
       fontFamily: {
@@ -51,5 +52,4 @@ export default {
     },
   },
   darkMode: "class",
-  plugins: [bootstrapIconsPlugin, require('@tailwindcss/typography')]
 } satisfies Config;

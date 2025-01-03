@@ -27,7 +27,6 @@ export const getStaticProps: GetStaticProps<{ post: PostProps }> = async ({
 };
 
 const EditorPage: React.FC<{ post: PostProps }> = ({post}): JSX.Element => {
-    console.log(post);
   return <CreateEditPostPage post={post} />;
 }
 

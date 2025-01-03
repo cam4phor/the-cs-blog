@@ -2,6 +2,244 @@
 @tailwind components;
 @tailwind utilities;
 
+@tailwind components;
+
+@layer components {
+  .editor-paragraph {
+    @apply text-text-primary leading-8;
+  }
+  .editor-container {
+    @apply mx-auto mt-5 rounded-lg max-w-2xl relative text-left border-border bg-background-primary;
+  }
+
+  .editor-inner {
+    @apply bg-white relative;
+  }
+
+  .editor-input {
+    @apply min-h-[150px] resize-none text-base caret-black outline-none p-4 leading-6;
+  }
+
+  .editor-placeholder {
+    @apply absolute top-4 left-4 text-text-tertiary pointer-events-none;
+  }
+
+  .editor-text-bold {
+    @apply font-bold text-text-primary;
+  }
+
+  .editor-text-italic {
+    @apply italic text-text-primary;
+  }
+
+  .editor-text-underline {
+    @apply underline text-text-primary;
+  }
+
+  .editor-text-strikethrough {
+    @apply line-through;
+  }
+  .editor-text-underlineStrikethrough {
+    text-decoration: underline line-through;
+  }
+
+  .editor-link {
+    @apply text-accent no-underline;
+  }
+
+  .editor-code {
+    @apply bg-background-secondary text-text-secondary w-full;
+  }
+
+  .editor-quote {
+    @apply bg-background-secondary text-text-secondary border-l-4 border-gray-50 p-2 pl-4 my-2;
+  }
+
+  .editor-heading-h1 {
+    @apply text-4xl font-bold text-text-primary mb-1;
+  }
+
+  .editor-heading-h2 {
+    @apply text-3xl font-bold text-text-primary mb-1;
+  }
+
+  .editor-listitem {
+    @apply ml-4;
+  }
+
+  .editor-list-ol {
+    @apply text-text-primary list-decimal list-inside;
+  }
+
+  .editor-list-ul {
+    @apply text-text-primary list-disc list-inside;
+  }
+
+  .editor-nested-listitem {
+    @apply ml-8;
+  }
+
+  .editor-image {
+    @apply block mx-auto my-4;
+  }
+
+  .editor-link{
+    @apply text-accent;
+  }
+
+  .editor-text-overflowed {
+    @apply overflow-hidden whitespace-nowrap overflow-ellipsis;
+  }
+  
+  .editor-text-hashtag{
+    @apply text-accent;
+  }
+
+  .editor-tokenAttr {
+    color: var(--token-attr);
+  }
+  
+  .editor-tokenProperty {
+    color: var(--token-property);
+  }
+  
+  .editor-tokenSelector {
+    color: var(--token-selector);
+  }
+  
+  .editor-tokenComment {
+    color: var(--token-comment);
+    font-style: italic;
+  }
+  
+  .editor-tokenFunction {
+    color: var(--token-function);
+  }
+  
+  .editor-tokenVariable {
+    color: var(--token-variable);
+  }
+  
+  .editor-tokenOperator {
+    color: var(--token-operator);
+  }
+  
+  .editor-tokenPunctuation {
+    color: var(--token-punctuation);
+  }
+  
+  .editor-tokenKeyword {
+    color: var(--token-keyword);
+  }
+  
+  .editor-tokenString {
+    color: var(--token-string);
+  }
+  
+  .editor-tokenNumber {
+    color: var(--token-number);
+  }
+  
+  .editor-tokenTag {
+    color: var(--token-tag);
+  }
+  
+  .editor-tokenEntity {
+    color: var(--token-entity);
+    text-decoration: underline;
+  }
+  
+  .editor-tokenNamespace {
+    color: var(--token-namespace);
+  }
+  
+  .editor-tokenImportant {
+    color: var(--token-important);
+    text-decoration: underline;
+  }
+  
+  .editor-tokenInserted {
+    color: var(--token-inserted);
+  }
+  
+  .editor-tokenDeleted {
+    color: var(--token-deleted);
+    text-decoration: line-through;
+  }
+  
+  .editor-tokenChar {
+    color: var(--token-char);
+  }
+  
+  .editor-tokenBuiltin {
+    color: var(--token-builtin);
+  }
+  
+  .editor-tokenConstant {
+    color: var(--token-constant);
+  }
+  
+  .editor-tokenProlog {
+    color: var(--token-prolog);
+    font-style: italic;
+  }
+  
+  .editor-tokenRegex {
+    color: var(--token-regex);
+  }
+  
+  .editor-tokenURL {
+    color: var(--token-url);
+    text-decoration: underline;
+  }
+
+  .prose pre {
+    margin-top: 0;
+    margin-bottom: 0;
+    border-radius: 0;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+  }
+
+  .prose p {
+    margin-top: 0.6rem;
+    margin-bottom: 0.6rem;
+    border-radius: 0;
+  }
+  .prose {
+    @apply text-text-primary text-xl;
+  }
+
+  .prose h1{
+    @apply text-text-primary;
+  }
+
+  .prose h2 {
+    @apply mt-4 mb-4;
+  }
+
+  .prose ul {
+    margin-top: 0.6rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .prose ol {
+    margin-top: 0.6rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .prose li {
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .prose blockquote {
+    @apply bg-background-secondary text-text-secondary border-l-4 border-border p-2 pl-4 my-2;
+  }
+
+}
+
+
 @font-face {
   font-family: "7segment";
   src: url("/fonts/7segment.ttf") format("truetype");
@@ -76,6 +314,31 @@ div {
   --color-success: #28a745;
   --color-error: #dc3545;
   --color-warning: #ffc107;
+
+  /* Syntax Highlighting */
+  --token-attr: #fbbf24;
+  --token-property: #3b82f6;
+  --token-selector: #10b981;
+  --token-comment: #6b7280;
+  --token-function: #a855f7;
+  --token-variable: #ef4444;
+  --token-operator: #ec4899;
+  --token-punctuation: #374151;
+  --token-keyword: #6366f1;
+  --token-string: #059669;
+  --token-number: #f97316;
+  --token-tag: #dc2626;
+  --token-entity: #14b8a6;
+  --token-namespace: #a78bfa;
+  --token-important: #f472b6;
+  --token-inserted: #16a34a;
+  --token-deleted: #b91c1c;
+  --token-char: #facc15;
+  --token-builtin: #818cf8;
+  --token-constant: #fb923c;
+  --token-prolog: #9ca3af;
+  --token-regex: #2dd4bf;
+  --token-url: #3b82f6;
 }
 
 /* Dark Theme */
@@ -103,6 +366,31 @@ div {
   --color-success: #0e3e19;
   --color-error: #4f1717;
   --color-warning: #897731;
+
+  /* Syntax Highlighting */
+  --token-attr: #facc15;
+  --token-property: #60a5fa;
+  --token-selector: #34d399;
+  --token-comment: #9ca3af;
+  --token-function: #d8b4fe;
+  --token-variable: #f87171;
+  --token-operator: #f472b6;
+  --token-punctuation: #d1d5db;
+  --token-keyword: #818cf8;
+  --token-string: #22c55e;
+  --token-number: #fb923c;
+  --token-tag: #f87171;
+  --token-entity: #2dd4bf;
+  --token-namespace: #c4b5fd;
+  --token-important: #f9a8d4;
+  --token-inserted: #4ade80;
+  --token-deleted: #f87171;
+  --token-char: #fcd34d;
+  --token-builtin: #a5b4fc;
+  --token-constant: #fbbf24;
+  --token-prolog: #6b7280;
+  --token-regex: #2dd4bf;
+  --token-url: #93c5fd;
 }
 
 body {
@@ -126,11 +414,38 @@ main {
 
 h1,
 h2 {
-  color: #333;
+  color: var(--color-text-primary);
 }
 
 @media (max-width: 600px) {
   h1 {
     font-size: 1.5em;
   }
+}
+
+
+.editor-tokenAttr,
+.editor-tokenProperty,
+.editor-tokenSelector,
+.editor-tokenComment,
+.editor-tokenFunction,
+.editor-tokenVariable,
+.editor-tokenOperator,
+.editor-tokenPunctuation,
+.editor-tokenKeyword,
+.editor-tokenString,
+.editor-tokenNumber,
+.editor-tokenTag,
+.editor-tokenEntity,
+.editor-tokenNamespace,
+.editor-tokenImportant,
+.editor-tokenInserted,
+.editor-tokenDeleted,
+.editor-tokenChar,
+.editor-tokenBuiltin,
+.editor-tokenConstant,
+.editor-tokenProlog,
+.editor-tokenRegex,
+.editor-tokenURL {
+  transition: color 0.5s ease-in-out, text-decoration 0.5s ease-in-out;
 }

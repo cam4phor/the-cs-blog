@@ -7,13 +7,12 @@ const NoSSREditor = dynamic(() => import('@/components/Editor'), { ssr: false })
 
 function generateUniqueId() {
   const randomString = Date.now().toString(36) + Math.random().toString(36).substr(2)
-  console.log(randomString);
   return randomString;
 }
 
 const CreateEditPostPage: React.FC<{post?: PostProps}> = ({post}) => {
   const [isNew] = useState(post?.id !== null ? false : true);
-  console.log('we are here', isNew);
+  
   const handleSave = useCallback(async (title: string, excerpt: string, content: string) => {
     const currentPost = {
       id: isNew ? generateUniqueId() : post?.id, // rectify this so that post.id is never null
@@ -23,7 +22,6 @@ const CreateEditPostPage: React.FC<{post?: PostProps}> = ({post}) => {
       date: new Date().toISOString(),
       isNew
     };
-
     const response = await fetch('/api/save-post', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
